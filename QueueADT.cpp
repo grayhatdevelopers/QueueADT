@@ -19,7 +19,7 @@
 using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+	std::cout << "Hello World!\n";
 	Queue<int> A;
 	int option;
 	do {
@@ -46,7 +46,7 @@ int main()
 			else {
 				cout << "Who else are you to blame except for yourself?" << endl;
 			}
-			
+
 		}
 		else if (option == 3) {
 			cout << endl;
@@ -65,8 +65,52 @@ int main()
 		if (A.getLength()) 	cout << "That's it. You can wait." << endl;
 		else cout << "Your turn has arrived. Finally!" << endl;
 
-		cout << "------------------------------------------" << endl<<endl;
+		cout << "------------------------------------------" << endl << endl;
 	} while (option);
 
-}
 
+	cout << endl;
+	cout << "Now let's try creating a line and adding it to the current one." << endl;
+	Queue<int> B;
+	do {
+		cout << "Enter:" << endl;
+		cout << "1 to add a person, \n0 to exit and more towards addition." << endl;
+		cin >> option;
+		if (option) {
+			int generate;
+			cout << endl;
+			cout << "Enter a number for token generation." << endl;
+			cin >> generate;
+			cout << endl;
+			B.enqueue(generate);
+		}
+
+		cout << endl;
+		cout << "------------------------------------------" << endl;
+		cout << "is Empty? " << B.isEmpty() << endl;
+		B.Display();
+
+		cout << "There are " << B.getLength() << " people in the line." << endl;
+		if (B.getLength()) 	cout << "That's it. You can wait." << endl;
+		else cout << "Your turn has arrived. Finally!" << endl;
+
+		cout << "------------------------------------------" << endl << endl;
+
+	} while (option);
+
+	cout << endl;
+	cout << endl;
+	cout << "Now concatenating Queue B to Queue A..." << endl;
+	A += B;
+	cout << endl;
+	cout << "------------------------------------------" << endl;
+	cout << "is Empty? " << A.isEmpty() << endl;
+	A.Display();
+
+	cout << "There are " << A.getLength() << " people in the line." << endl;
+	if (A.getLength()) 	cout << "That's it. You can wait." << endl;
+	else cout << "Your turn has arrived. Finally!" << endl;
+
+	cout << "------------------------------------------" << endl << endl;
+
+}

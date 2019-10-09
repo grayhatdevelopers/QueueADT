@@ -29,6 +29,11 @@ public:
 		return top == nullptr;
 	}
 
+	Item <T>* getTop() const {
+		return top;
+	}
+
+
 	void enqueue(T dataItem) {
 		Item<T>* newItem = new Item<T>(dataItem);
 		Item<T>* currNode = top;
@@ -75,6 +80,7 @@ public:
 		return Qsize;
 	}
 
+
 	void Display() {
 		cout << "Displaying Queue..." << endl;
 		Item <T>* cursor = top;
@@ -85,6 +91,23 @@ public:
 		cout << endl;
 
 	} 
+
+	Item<T>* operator+=(const Queue<T>& otherQueue) {
+			Item<T>* currNode = top;
+			Item<T>* prevNode = nullptr;
+			while (currNode != nullptr) {
+				prevNode = currNode;
+				currNode = currNode->next;
+			}
+			if (prevNode) {
+				prevNode->next = otherQueue.getTop();
+			}
+			else {
+				top = otherQueue.getTop();
+			}
+			Qsize+=otherQueue.getLength();
+			return this->getTop();
+	}
 
 
 };
