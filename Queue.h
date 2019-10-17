@@ -92,7 +92,7 @@ public:
 
 	} 
 
-	Item<T>* operator+=(const Queue<T>& otherQueue) {
+	Queue<T> operator+=(const Queue<T>& otherQueue) {
 			Item<T>* currNode = top;
 			Item<T>* prevNode = nullptr;
 			while (currNode != nullptr) {
@@ -106,7 +106,7 @@ public:
 				top = otherQueue.getTop();
 			}
 			Qsize+=otherQueue.getLength();
-			return this->getTop();
+			return *this;
 	}
 
 
